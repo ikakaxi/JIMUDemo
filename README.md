@@ -47,7 +47,9 @@ compile 'com.luojilab.ddcomponent:componentlib:1.3.0'
 
 **注意：主模块和组件模块不需要再引用com.android.application或者com.android.library**
 
-在主模块和每个组件都增加以下配置，设置组件单独运行时候的Application（如果不需要单独运行可以不设置），其中**isRegisterCompoAuto必须设置并且必须为true**，否则会编译错误，这个属性是什么意思暂时不懂：
+在主模块和每个组件都增加以下配置，设置组件单独运行时候的Application（如果不需要单独运行可以不设置），其中**isRegisterCompoAuto**参数我解释一下，如果该值为**true**，意思是该模块需要的组件只需要在gradle.properties里配置就可以了，JIMU会自动注册这些组件，如果为**false**意思是不仅要在gradle.properties里配置里配置组件，还需要手动注册这些组件，如果该组件里不需要引入其他组件该值也可以不设置，否则一般把该值设置为true即可。
+
+如果applicationName和isRegisterCompoAuto都不设置，combuild这块代码也可以删掉的没有问题，不删掉保持为空也可以，例如`combuild {}`，不过都不配置的话直接删掉`combuild {}`吧。
 
 ```java
 combuild {

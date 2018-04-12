@@ -26,7 +26,3 @@ kapt {
         arg("host", "module2")
     }
 }
-
-combuild {
-    isRegisterCompoAuto = true
-}
